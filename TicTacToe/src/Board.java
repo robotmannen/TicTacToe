@@ -10,28 +10,22 @@ public class Board {
     }
 
     public void placePiece(int player) {
-        Scanner in = new Scanner(System.in);
-        int userInput = Integer.parseInt(in.nextLine());
-
         String playerSelector;
+        Scanner in;
+        int playerInput;
 
-        if (player != 0) {
-            playerSelector = "x";
-        } else {
-            playerSelector = "o";
-        }
+        playerSelector = ((player == 1) ? "x" : "o");
 
-        switch (userInput) {
-            case 1 -> fieldList[0] = playerSelector;
-            case 2 -> fieldList[1] = playerSelector;
-            case 3 -> fieldList[2] = playerSelector;
-            case 4 -> fieldList[3] = playerSelector;
-            case 5 -> fieldList[4] = playerSelector;
-            case 6 -> fieldList[5] = playerSelector;
-            case 7 -> fieldList[6] = playerSelector;
-            case 8 -> fieldList[7] = playerSelector;
-            case 9 -> fieldList[8] = playerSelector;
-            default -> System.out.println("U cheeky blud, numbers only");
+        while (true) {
+            try {
+                in = new Scanner(System.in);
+                playerInput = Integer.parseInt(in.nextLine());
+                fieldList[playerInput - 1] = playerSelector;
+            } catch (Exception e) {
+                System.out.println("Enter a valid value between 1-9");
+                continue;
+            }
+            break;
         }
     }
 
