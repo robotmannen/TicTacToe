@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Board {
@@ -20,7 +21,13 @@ public class Board {
             try {
                 in = new Scanner(System.in);
                 playerInput = Integer.parseInt(in.nextLine());
-                fieldList[playerInput - 1] = playerSelector;
+
+                if (Objects.equals(fieldList[playerInput - 1], " ")) {
+                    fieldList[playerInput - 1] = playerSelector;
+                } else {
+                    System.out.println("Tile is already selected, choose another");
+                    continue;
+                }
             } catch (Exception e) {
                 System.out.println("Enter a valid value between 1-9");
                 continue;
