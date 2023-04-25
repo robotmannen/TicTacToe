@@ -58,4 +58,8 @@ public class Board {
         }
         return winner;
     }
+
+    public boolean checkStalemate(int roundNumber) {
+        return roundNumber == 9;
+    }
 }
