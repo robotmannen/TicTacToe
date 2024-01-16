@@ -84,6 +84,15 @@ public class TicTacToe {
     }
 
     private boolean checkWin() {
+        for (int i = 0; i <= 2; i += 2) {
+            if (Objects.equals(boardList[i], boardList[8 - i]) &&
+                Objects.equals(boardList[i], boardList[4]) &&
+                !Objects.equals(boardList[i], " ")
+            ) {
+                return true;
+            }
+        }
+
         for (int i = 0; i <= 6; i += 3) {
             if (Objects.equals(boardList[i], boardList[i + 1]) &&
                 Objects.equals(boardList[i], boardList[i + 2]) &&

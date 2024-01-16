@@ -13,19 +13,20 @@ public class Menu {
         if (Objects.equals(input, "y")) {
             game = new TicTacToe();
             runGame();
+        } else {
+            System.out.println("GG!");
         }
     }
 
     private static void didRestartGame() {
+        System.out.println("Want to restart the game? y/n");
         while (true) {
-            System.out.println("Want to restart the game? y/n");
-            try {
-                String inputLowerCase = InputUtils.stringInput().toLowerCase();
-                if (Objects.equals(inputLowerCase, "y") || Objects.equals(inputLowerCase, "n")) {
-                    restartGame(inputLowerCase);
-                    break;
-                }
-            } catch (Exception ignored) {
+            String inputLowerCase = InputUtils.stringInput().toLowerCase();
+
+            if (Objects.equals(inputLowerCase, "y") || Objects.equals(inputLowerCase, "n")) {
+                restartGame(inputLowerCase);
+                break;
+            } else {
                 System.out.println("Invalid value, please enter either y or n to continue");
             }
         }
